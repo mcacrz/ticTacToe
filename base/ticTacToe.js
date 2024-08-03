@@ -16,11 +16,6 @@ export default function () {
     table[position] = (symbol.toLowerCase() !== 'x' && symbol.toLowerCase() !== 'o') ? '' : symbol.toLowerCase();
   }
 
-  const setP2 = (table, symbol) => {
-    table.p2 = (symbol.toLowerCase() !== 'x' && symbol.toLowerCase() !== 'o') ? '' : symbol.toLowerCase();
-    return table;
-  }
-
   const setP3 = (table, symbol) => {
     table.p3 = (symbol.toLowerCase() !== 'x' && symbol.toLowerCase() !== 'o') ? '' : symbol.toLowerCase();
     return table;
@@ -92,7 +87,7 @@ export default function () {
     if (table) {
       const plays = {
         'p1' : () => set('p1', symbol),
-        'p2' : () => setP2(table, symbol),
+        'p2' : () => set('p2', symbol),
         'p3' : () => setP3(table, symbol),
         'p4' : () => setP4(table, symbol),
         'p5' : () => setP5(table, symbol),
@@ -120,5 +115,5 @@ export default function () {
 
   let table = newPlay();
  
-  return { newPlay, getPositionValue, getTableLength, move, set, setP2, setP3, setP4, setP5, setP6, setP7, setP8, setP9, isFinish, verifyDraw }
+  return { newPlay, getPositionValue, getTableLength, move, set, setP3, setP4, setP5, setP6, setP7, setP8, setP9, isFinish, verifyDraw }
 }
