@@ -1,9 +1,9 @@
 import { ticTacToe } from '../base'
 describe('suit test for tic-tac-toe game', () => {
-  const game = ticTacToe();
+  
   test('should create an object with 9 positions', () => {
-    const table = game.newPlay();
-    expect(Object.keys(table).length).toBe(9);
+    const game = ticTacToe();
+    expect(game.getTableLength()).toBe(9);
   });
 
   test('should set p1 position with "x" symbol' , () => {
