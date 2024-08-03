@@ -28,24 +28,24 @@ describe('suit test for tic-tac-toe game', () => {
   })
 
   test('should set p2 position with "x" symbol' , () => {
-    let table = game.newPlay();
-    table = game.setP2(table,'x');
+    const game = ticTacToe();
+    game.set('p2','x');
 
-    expect(table.p2).toBe('x');
+    expect(game.getPositionValue('p2')).toBe('x');
   })
 
   test('should set p2 position with "o" symbol' , () => {
-    let table = game.newPlay();
-    table = game.setP2(table,'x');
+    const game = ticTacToe();
+    game.set('p2','o');
 
-    expect(table.p2).toBe('x');
+    expect(game.getPositionValue('p2')).toBe('o');
   })
 
   test('should mantain p2 position empty if symbol is diferent of "x" or "o"', () => {
-    let table = game.newPlay();
-    table = game.setP2(table,'y');
+    const game = ticTacToe();
+    game.set('p2','y');
 
-    expect(table.p2).toBe('');
+    expect(game.getPositionValue('p2')).toBe('');
   })
 
   test('should set p3 position with "x" symbol' , () => {
