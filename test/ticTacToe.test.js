@@ -49,24 +49,24 @@ describe('suit test for tic-tac-toe game', () => {
   })
 
   test('should set p3 position with "x" symbol' , () => {
-    let table = game.newPlay();
-    table = game.setP3(table,'x');
+    const game = ticTacToe();
+    game.set('p3','x');
 
-    expect(table.p3).toBe('x');
+    expect(game.getPositionValue('p3')).toBe('x');
   })
 
   test('should set p3 position with "o" symbol' , () => {
-    let table = game.newPlay();
-    table = game.setP3(table,'x');
+    const game = ticTacToe();
+    game.set('p3','o');
 
-    expect(table.p3).toBe('x');
+    expect(game.getPositionValue('p3')).toBe('o');
   })
 
   test('should mantain p3 position empty if symbol is diferent of "x" or "o"', () => {
-    let table = game.newPlay();
-    table = game.setP3(table,'y');
+    const game = ticTacToe();
+    game.set('p3','y');
 
-    expect(table.p3).toBe('');
+    expect(game.getPositionValue('p3')).toBe('');
   })
 
   test('should set p4 position with "x" symbol' , () => {
