@@ -21,10 +21,10 @@ describe('suit test for tic-tac-toe game', () => {
   })
 
   test('should mantain p1 position empty if symbol is diferent of "x" or "o"', () => {
-    let table = game.newPlay();
-    table = game.setP1(table,'y');
+    const game = ticTacToe();
+    game.set('p1','y');
 
-    expect(table.p1).toBe('');
+    expect(game.getPositionValue('p1')).toBe('');
   })
 
   test('should set p2 position with "x" symbol' , () => {
