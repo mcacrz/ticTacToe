@@ -12,9 +12,8 @@ export default function () {
     p9:''
   })
 
-  const setP1 = (symbol) => {
-    table.p1 = (symbol.toLowerCase() !== 'x' && symbol.toLowerCase() !== 'o') ? '' : symbol.toLowerCase();
-    return table;
+  const set = (position = '', symbol) => {
+    table[position] = (symbol.toLowerCase() !== 'x' && symbol.toLowerCase() !== 'o') ? '' : symbol.toLowerCase();
   }
 
   const setP2 = (table, symbol) => {
@@ -92,7 +91,7 @@ export default function () {
   const move = (table, position, symbol) => {
     if (table) {
       const plays = {
-        'p1' : () => setP1(table, symbol),
+        'p1' : () => set('p1', symbol),
         'p2' : () => setP2(table, symbol),
         'p3' : () => setP3(table, symbol),
         'p4' : () => setP4(table, symbol),
@@ -111,11 +110,15 @@ export default function () {
     return false;
   }
 
+  const getPositionValue = (position) => {
+    return table[position];
+  }
+
   const getTableLength = () => {
     return Object.keys(table).length;
   }
 
   let table = newPlay();
  
-  return { newPlay, getTableLength, move, setP1, setP2, setP3, setP4, setP5, setP6, setP7, setP8, setP9, isFinish, verifyDraw }
+  return { newPlay, getPositionValue, getTableLength, move, set, setP2, setP3, setP4, setP5, setP6, setP7, setP8, setP9, isFinish, verifyDraw }
 }

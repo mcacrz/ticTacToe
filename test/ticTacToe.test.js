@@ -7,17 +7,17 @@ describe('suit test for tic-tac-toe game', () => {
   });
 
   test('should set p1 position with "x" symbol' , () => {
-    let table = game.newPlay();
-    table = game.setP1(table,'x');
+    const game = ticTacToe();
+    game.set('p1','x');
 
-    expect(table.p1).toBe('x');
+    expect(game.getPositionValue('p1')).toBe('x');
   })
 
   test('should set p1 position with "o" symbol' , () => {
-    let table = game.newPlay();
-    table = game.setP1(table,'x');
+    const game = ticTacToe();
+    game.set('p1','o');
 
-    expect(table.p1).toBe('x');
+    expect(game.getPositionValue('p1')).toBe('o');
   })
 
   test('should mantain p1 position empty if symbol is diferent of "x" or "o"', () => {
