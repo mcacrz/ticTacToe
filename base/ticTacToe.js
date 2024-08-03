@@ -12,7 +12,7 @@ export default function () {
     p9:''
   })
 
-  const setP1 = (table, symbol) => {
+  const setP1 = (symbol) => {
     table.p1 = (symbol.toLowerCase() !== 'x' && symbol.toLowerCase() !== 'o') ? '' : symbol.toLowerCase();
     return table;
   }
@@ -110,6 +110,12 @@ export default function () {
     
     return false;
   }
+
+  const getTableLength = () => {
+    return Object.keys(table).length;
+  }
+
+  let table = newPlay();
  
-  return { newPlay, move, setP1, setP2, setP3, setP4, setP5, setP6, setP7, setP8, setP9, isFinish, verifyDraw }
+  return { newPlay, getTableLength, move, setP1, setP2, setP3, setP4, setP5, setP6, setP7, setP8, setP9, isFinish, verifyDraw }
 }
