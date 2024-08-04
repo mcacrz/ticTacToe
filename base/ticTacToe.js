@@ -1,4 +1,4 @@
-export default function () {
+export default function (mode = 'production') {
   
   const newPlay = () => ({
     p1:'',
@@ -12,15 +12,15 @@ export default function () {
     p9:''
   })
 
-  const set = (position = '', symbol) => {
+  const set = (position, symbol) => {
     table[position] = (symbol.toLowerCase() !== 'x' && symbol.toLowerCase() !== 'o') ? '' : symbol.toLowerCase();
   }
 
-  const verifyDraw = (table) => {
+  const verifyDraw = () => {
     return (table.p1.length > 0 && table.p2.length > 0 && table.p3.length> 0 && table.p4.length > 0 && table.p5.length > 0 && table.p6.length > 0 && table.p7.length > 0 && table.p8.length > 0 && table.p9.length > 0)
   }
 
-  const isFinish = (table) => {
+  const isFinish = () => {
     const ruleHTop = () => ((table.p1.length > 0 && table.p2.length > 0 && table.p3.length > 0) && (table.p1 === table.p2 && table.p2 === table.p3 && table.p3 === table.p1));
     const ruleHMiddle = () => ((table.p4.length > 0 && table.p5.length > 0 && table.p6.length > 0) && (table.p4 === table.p5 && table.p5 === table.p6 && table.p6 === table.p4));
     const ruleHBottom = () => ((table.p7.length > 0 && table.p8.length > 0 && table.p9.length > 0) && (table.p7 === table.p8 && table.p8 === table.p9 && table.p9 === table.p7));
@@ -45,34 +45,18 @@ export default function () {
       return finishMoves['true']();
     } 
     
-    return verifyDraw(table) ? {status: true, rule: 'Draw'} : false;
+    return verifyDraw() ? {status: true, rule: 'Draw'} : false;
   }
 
-  const move = (table, position, symbol) => {
-    if (table) {
-      const plays = {
-        'p1' : () => set('p1', symbol),
-        'p2' : () => set('p2', symbol),
-        'p3' : () => set('p3', symbol),
-        'p4' : () => set('p4', symbol),
-        'p5' : () => set('p5', symbol),
-        'p6' : () => set('p6', symbol),
-        'p7' : () => set('p7', symbol),
-        'p8' : () => set('p8', symbol),
-        'p9' : () => set('p9', symbol),
-      };
-
-      if (table[position].length === 0) table = plays[position](table, symbol);
-
-      return table;
-    }
-    
-    return false;
+  const move = (symbol, position = '') => {
+    if (table.hasOwnProperty(position) && table[position].length === 0) set(position, symbol);
   }
 
   const getPositionValue = (position) => {
     return table[position];
   }
+
+  const getTable = () => table;
 
   const getTableLength = () => {
     return Object.keys(table).length;
@@ -80,5 +64,7 @@ export default function () {
 
   let table = newPlay();
  
-  return { newPlay, getPositionValue, getTableLength, move, set, isFinish, verifyDraw }
+  return (mode === 'production') 
+    ? {isFinish, move}
+    : {isFinish, getPositionValue, getTable, getTableLength, move}
 }
