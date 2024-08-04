@@ -16,11 +16,6 @@ export default function () {
     table[position] = (symbol.toLowerCase() !== 'x' && symbol.toLowerCase() !== 'o') ? '' : symbol.toLowerCase();
   }
 
-  const setP8 = (table, symbol) => {
-    table.p8 = (symbol.toLowerCase() !== 'x' && symbol.toLowerCase() !== 'o') ? '' : symbol.toLowerCase();
-    return table;
-  }
-
   const setP9 = (table, symbol) => {
     table.p9 = (symbol.toLowerCase() !== 'x' && symbol.toLowerCase() !== 'o') ? '' : symbol.toLowerCase();
     return table;
@@ -68,7 +63,7 @@ export default function () {
         'p5' : () => set('p5', symbol),
         'p6' : () => set('p6', symbol),
         'p7' : () => set('p7', symbol),
-        'p8' : () => setP8(table, symbol),
+        'p8' : () => set('p8', symbol),
         'p9' : () => setP9(table, symbol),
       };
 
@@ -90,5 +85,5 @@ export default function () {
 
   let table = newPlay();
  
-  return { newPlay, getPositionValue, getTableLength, move, set, setP8, setP9, isFinish, verifyDraw }
+  return { newPlay, getPositionValue, getTableLength, move, set, setP9, isFinish, verifyDraw }
 }
