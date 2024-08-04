@@ -112,24 +112,24 @@ describe('suit test for tic-tac-toe game', () => {
   })
 
   test('should set p6 position with "x" symbol' , () => {
-    let table = game.newPlay();
-    table = game.setP6(table,'x');
+    const game = ticTacToe();
+    game.set('p6','x');
 
-    expect(table.p6).toBe('x');
+    expect(game.getPositionValue('p6')).toBe('x');
   })
 
   test('should set p6 position with "o" symbol' , () => {
-    let table = game.newPlay();
-    table = game.setP6(table,'x');
+    const game = ticTacToe();
+    game.set('p6','o');
 
-    expect(table.p6).toBe('x');
+    expect(game.getPositionValue('p6')).toBe('o');
   })
 
   test('should mantain p6 position empty if symbol is diferent of "x" or "o"', () => {
-    let table = game.newPlay();
-    table = game.setP6(table,'y');
+    const game = ticTacToe();
+    game.set('p6','y');
 
-    expect(table.p6).toBe('');
+    expect(game.getPositionValue('p6')).toBe('');
   })
 
   test('should set p7 position with "x" symbol' , () => {
