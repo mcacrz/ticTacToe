@@ -175,24 +175,24 @@ describe('suit test for tic-tac-toe game', () => {
   })
   
   test('should set p9 position with "x" symbol' , () => {
-    let table = game.newPlay();
-    table = game.setP9(table,'x');
+    const game = ticTacToe();
+    game.set('p9','x');
 
-    expect(table.p9).toBe('x');
+    expect(game.getPositionValue('p9')).toBe('x');
   })
 
   test('should set p9 position with "o" symbol' , () => {
-    let table = game.newPlay();
-    table = game.setP9(table,'x');
+    const game = ticTacToe();
+    game.set('p9','o');
 
-    expect(table.p9).toBe('x');
+    expect(game.getPositionValue('p9')).toBe('o');
   })
 
   test('should mantain p9 position empty if symbol is diferent of "x" or "o"', () => {
-    let table = game.newPlay();
-    table = game.setP9(table,'y');
+    const game = ticTacToe();
+    game.set('p9','y');
 
-    expect(table.p9).toBe('');
+    expect(game.getPositionValue('p9')).toBe('');
   })
 
   test('should return status true game if rule Horizontal Top is true', () => {
