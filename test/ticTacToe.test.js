@@ -1,4 +1,4 @@
-import { ticTacToe } from '../src'
+import ticTacToe from '../ticTacToe.js'
 describe('suit test for tic-tac-toe game', () => {
   
   test('should create an object with 9 positions', () => {
