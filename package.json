@@ -1,6 +1,6 @@
 {
   "name": "@mcacrz/tictactoe",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Exemplo de jogo da velha",
   "main": "src/ticTacToe.js",
   "devDependencies": {
