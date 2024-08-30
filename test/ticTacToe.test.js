@@ -3,15 +3,15 @@ describe('suit test for tic-tac-toe game', () => {
   
   test('should create an object with 9 positions', () => {
     const game = ticTacToe('development');
-    expect(game.getTableLength()).toBe(9);
+    expect(game.getboardLength()).toBe(9);
   });
 
   test('should mantain all positions empty if position not informed', () => {
     const game = ticTacToe('development');
-    const tableBefore = game.getTable();
+    const boardBefore = game.getboard();
     game.move('x');
 
-    expect(game.getTable()).toBe(tableBefore);
+    expect(game.getboard()).toBe(boardBefore);
   })
 
   test('should return same value to position if a move is make in a field filled', () => {
