@@ -59,7 +59,7 @@ export default function ticTacToe (mode = 'production') {
     const ruleDLeftRight = ((board.p1.length > 0 && board.p5.length > 0 && board.p9.length > 0) && (board.p1 === board.p5 && board.p5 === board.p9 && board.p9 === board.p1));
     const ruleDRightLeft = ((board.p3.length > 0 && board.p5.length > 0 && board.p7.length > 0) && (board.p3 === board.p5 && board.p5 === board.p7 && board.p7 === board.p3));
 
-    const finishMoves = {
+    const WinnerMoves = {
       [ruleHTop] : () => ({status: true, rule: 'Horizontal Top'}),
       [ruleHMiddle]: () => ({status: true, rule: 'Horizontal Middle'}),
       [ruleHBottom]: () => ({status: true, rule: 'Horizontal Bottom'}),
@@ -70,7 +70,7 @@ export default function ticTacToe (mode = 'production') {
       [ruleDRightLeft]: () => ({status: true, rule: 'Diagonal Right Left'})
     }
 
-    if (finishMoves.hasOwnProperty('true')) {
+    if (WinnerMoves.hasOwnProperty('true')) {
       return finishMoves['true']();
     } 
 
